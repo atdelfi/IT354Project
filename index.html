@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample View</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>
     
 </head>
 <body>
@@ -16,9 +17,22 @@
   <a href="#">Contact</a>
 </div>
 
-<!-- Page content -->
-<div class="main">
-  ...
-</div>
+<h1>Reddit Posts</h1>
+<form id="subreddit-select-form">
+  <label>r/</label>
+  <input id="subreddit">
+  <button type="submit"> Top 5 posts</button>
+  <div id="results-container">
+
+
+  </div>
+
+</form>
+
+
+
 </body>
+
+
+
 </html>
