@@ -127,13 +127,21 @@ input[type=submit]:hover {
   display: table;
   clear: both;
 }
+@media screen and (max-width: 1000px) {
+.user-card, .edit{
+  width: 500px;
+  word-wrap: break-word;
+}
 
+}
 @media screen and (max-width: 600px) {
   .column, input[type=submit] {
     width: 100%;
     margin-top: 0;
+    word-wrap: break-word;
   }
-  .user-card{
-    width: 100%;
+  .user-card, .edit{
+    word-wrap: break-word;
+    width: 320px;
   }
 }
