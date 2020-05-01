@@ -2,6 +2,9 @@ const postsPerRequest = 4;
 const maxPostsToFetch = 20;
 const maxRequests = maxPostsToFetch / postsPerRequest;
 
+document.getElementById('subreddit').defaultValue = "news";
+
+
 const responses = [];
 
 const handleSubmit = e => {
@@ -63,16 +66,25 @@ const parseResults = responses => {
 
 const displayRankings = sortedList => {
   const container = document.getElementById('results-container');
-  sortedList.forEach(({ username, score, postCount, title, selftext, permalink }, i) => {
+  sortedList.forEach(({ username, score,  title, selftext, permalink }, i) => {
     rank = i + 1;
     const userCard = document.createElement('a');
     userCard.href = `https://www.reddit.com${permalink}`;
     userCard.classList.add('user-card');
-    userCard.innerText = `${rank}. ${username} - ${postCount} post(s) - ${score} point(s), ${title} `;
+    userCard.innerText = `${rank}. ${username}  - ${score} point(s), ${title} `;
 
     container.appendChild(userCard);
   });
 };
+const resetArea = () => {
+  const container = document.getElementById('results-container').innerHTML = "";
+  
+ responses.length = 0;
+  
+  
 
+}
 const subredditSelectForm = document.getElementById('subreddit-select-form');
 subredditSelectForm.addEventListener('submit', handleSubmit);
+subredditSelectForm.addEventListener('reset', resetArea);
+
