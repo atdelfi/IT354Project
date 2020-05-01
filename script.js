@@ -71,12 +71,14 @@ const displayRankings = sortedList => {
   sortedList.forEach(({ username, score,  title, selftext_html, permalink, url }, i) => {
     rank = i + 1;
     const userCard = document.createElement('a');
+    let text = htmlDecode(selftext_html);
+    text = removeNull(text);
     const back = document.createElement('article')
     userCard.href = `https://www.reddit.com${permalink}`;
     userCard.classList.add('user-card');
     back.classList.add(`edit`);
     userCard.innerText = `${rank}. ${username}  - ${score} point(s), ${title} `;
-    back.innerHTML = `${url} <br /> ${selftext_html}`;
+    back.innerHTML = `${url} <br /> ${text}`;
 
     container.appendChild(userCard);
     container.appendChild(back);
@@ -90,6 +92,18 @@ const resetArea = () => {
   
 
 }
+function htmlDecode(input) {
+  var doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
+}
+function removeNull(input) {
+  if(input == "null"){
+    input = ""
+  }
+  return input;
+}
+
+
 const subredditSelectForm = document.getElementById('subreddit-select-form');
 subredditSelectForm.addEventListener('submit', handleSubmit);
 subredditSelectForm.addEventListener('reset', resetArea);
