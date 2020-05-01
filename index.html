@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample View</title>
+    <title>Top 5 Posts of the Day</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js" defer></script>
     
 </head>
 <body>
     <!-- Side navigation -->
-<div class="sidenav">
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
-
+    <div class="sidebar">
+      <a href="#home">Home</a>
+      <a href="contact.html">Contact</a>
+    </div>
+<div class = "content">
 <h1>Reddit Posts</h1>
 <form id="subreddit-select-form">
   <label>r/</label>
   <input id="subreddit">
   <button type="submit"> Top 5 posts</button>
+  <button type="reset"> Reset Subreddit</button>
   <div id="results-container">
 
 
@@ -29,7 +28,7 @@
 
 </form>
 
-
+</div>
 
 </body>
 
